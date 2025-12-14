@@ -20,7 +20,9 @@ def monitor_node(state: AgentState):
     
     # Capture current screenshot
     try:
-        browser_instance.start(headless=False)
+        # Ensure browser is started with video recording enabled
+        video_dir = os.path.join(os.getcwd(), "videos")
+        browser_instance.start(headless=False, record_video_dir=video_dir)
         page = browser_instance.get_page()
         screenshot_bytes = page.screenshot(type='png')
         

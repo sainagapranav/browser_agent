@@ -104,7 +104,10 @@ def execution_node(state: AgentState):
 
     # Run Browser
     try:
-        browser_instance.start(headless=False) # Visible browser for demo
+        # Ensure browser is started with video recording enabled
+        import os
+        video_dir = os.path.join(os.getcwd(), "videos")
+        browser_instance.start(headless=False, record_video_dir=video_dir) # Visible browser for demo
         result = browser_instance.execute_script(script)
         
         if result["status"] == "success":
