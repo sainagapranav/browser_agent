@@ -3,6 +3,7 @@ import base64
 import asyncio
 import threading
 import sys
+import os
 
 class SyncPlaywrightWrapper:
     """Wrapper that makes async Playwright objects and methods appear synchronous"""
