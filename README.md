@@ -29,7 +29,6 @@ browser_agent/
 │   └── state.py            # Shared agent state schema
 ├── tests/
 │   └── test_agent_flow.py  # Automated verification test suite
-├── videos/                 # Session recordings (auto-generated)
 ├── baselines/              # Visual regression baselines (auto-generated)
 ├── streamlit_app.py        # Web UI for the agent
 ├── requirements.txt        # Python dependencies
