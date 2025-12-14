@@ -3,7 +3,6 @@ import base64
 import asyncio
 import threading
 import sys
-import os
 
 class SyncPlaywrightWrapper:
     """Wrapper that makes async Playwright objects and methods appear synchronous"""
@@ -108,7 +107,7 @@ class BrowserManager:
         future = asyncio.run_coroutine_threadsafe(coro, loop)
         return future.result()
 
-    def start(self, headless=False, record_video_dir=None):
+    def start(self, headless=False):
         """Start the browser if not already running"""
         if self.page:
             return
@@ -131,10 +130,6 @@ class BrowserManager:
         # Create context if it doesn't exist
         if self._context is None:
             context_options = {}
-            if record_video_dir:
-                os.makedirs(record_video_dir, exist_ok=True)
-                context_options['record_video_dir'] = record_video_dir
-                context_options['record_video_size'] = {'width': 1920, 'height': 1080} # Default size
             
             # Set viewport for consistency
             context_options['viewport'] = {'width': 1920, 'height': 1080}

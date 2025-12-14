@@ -22,8 +22,7 @@ def discovery_node(state: AgentState):
     
     # 1. Navigate to the page
     import os
-    video_dir = os.path.join(os.getcwd(), "videos")
-    browser_instance.start(headless=False, record_video_dir=video_dir)
+    browser_instance.start(headless=False)
     page = browser_instance.get_page()
     
     try:
